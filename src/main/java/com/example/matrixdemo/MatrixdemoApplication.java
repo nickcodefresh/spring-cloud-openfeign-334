@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class MatrixdemoApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(MatrixdemoApplication.class, args);
 	}
 
