@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Ths calls the WireMock server
  */
-@FeignClient(url = "http://localhost:7000", name = "name")
+@FeignClient(url = "http://localhost:8080", name = "name")
 public interface FeignDemo {
 
     @GetMapping("/api/server{matrixVars}")
