@@ -31,66 +31,42 @@ public class FeignDemoTest {
 
 
     @Test
-    public void matrixParamsMap() throws IOException {
+    public void internalMatrixParamsMap() throws IOException {
 
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-
-            HttpGet request = new HttpGet("http://localhost:8080/client/matrixParamsMap");
-
-            // This REST call will fail because Spring Cloud is encoding the matrix parameters so that the request is]
-            // /api/server%3Bname%3D%5Bn%5D%3Baccount%3D%5Ba%5D rather than /api/server;account=a;name=n
-            client.execute(request, httpResponse -> {
-                assertThat(httpResponse.getStatusLine().getStatusCode() == HttpStatus.OK.value());
-                return httpResponse;
-            });
-
-        }
+        runTest("http://localhost:8080/client/matrixParamsMap");
 
     }
 
 
     @Test
-    public void matrixParams() throws IOException {
+    public void internalMatrixParams() throws IOException {
 
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-
-            HttpGet request = new HttpGet("http://localhost:8080/api/matrixParams");
-
-            client.execute(request, httpResponse -> {
-                assertThat(httpResponse.getStatusLine().getStatusCode() == HttpStatus.OK.value());
-                return httpResponse;
-            });
-
-        }
+        runTest("http://localhost:8080/client/matrixParams");
 
     }
 
 
     @Test
-    public void wireMockMatrixParamsMap() throws IOException {
+    public void wiremockMatrixParamsMap() throws IOException {
 
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-
-            HttpGet request = new HttpGet("http://localhost:8080/api/matrixParamsMap");
-
-            // This REST call will fail because Spring Cloud is encoding the matrix parameters so that the request is]
-            // /api/server%3Bname%3D%5Bn%5D%3Baccount%3D%5Ba%5D rather than /api/server;account=a;name=n
-            client.execute(request, httpResponse -> {
-                assertThat(httpResponse.getStatusLine().getStatusCode() == HttpStatus.OK.value());
-                return httpResponse;
-            });
-
-        }
+        runTest("http://localhost:7000/client/matrixParamsMap");
 
     }
 
 
     @Test
-    public void wireMockMatrixParams() throws IOException {
+    public void wiremockMatrixParams() throws IOException {
+
+        runTest("http://localhost:7000/client/matrixParams");
+
+    }
+
+
+    private void runTest(String url) throws IOException {
 
         try (CloseableHttpClient client = HttpClients.createDefault()) {
 
-            HttpGet request = new HttpGet("http://localhost:8080/client/matrixParams");
+            HttpGet request = new HttpGet(url);
 
             client.execute(request, httpResponse -> {
                 assertThat(httpResponse.getStatusLine().getStatusCode() == HttpStatus.OK.value());

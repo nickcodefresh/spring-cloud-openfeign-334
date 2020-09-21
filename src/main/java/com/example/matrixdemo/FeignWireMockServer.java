@@ -8,16 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 
-/**
- * Ths calls the WireMock server
- */
-@FeignClient(url = "http://localhost:8080", name = "name")
-public interface FeignDemo {
+@FeignClient(url = "http://localhost:7000", name = "wiremock")
+public interface FeignWireMockServer {
 
-    @GetMapping("/api/server{matrixVars}")
+    @GetMapping("/server/matrixParamsMap{matrixVars}")
     public void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
 
-    @GetMapping("/api/server{account}{name}")
+    @GetMapping("/server/matrixParams{account}{name}")
     public void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
 
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 public class ClientController {
 
     @Autowired
-    private FeignDemo feignDemo;
+    private FeignInternalServer feignDemo;
 
 
     @GetMapping("/client/matrixParamsMap")
