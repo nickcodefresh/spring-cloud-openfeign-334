@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 
-@FeignClient(url = "http://localhost:8000", name = "internal")
+@FeignClient(url = "http://localhost:8080", name = "internal")
 public interface FeignInternalServer {
 
     @GetMapping("/server/matrixParamsMap{matrixVars}")
-    public void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
+    void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
 
     @GetMapping("/server/matrixParams{account}{name}")
-    public void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
+    void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
 
 }

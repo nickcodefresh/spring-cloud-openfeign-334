@@ -33,7 +33,7 @@ public class FeignDemoTest {
     @Test
     public void internalMatrixParamsMap() throws IOException {
 
-        runTest("http://localhost:8080/client/matrixParamsMap");
+        runTest("http://localhost:8080/client/internalMatrixParamsMap");
 
     }
 
@@ -41,7 +41,7 @@ public class FeignDemoTest {
     @Test
     public void internalMatrixParams() throws IOException {
 
-        runTest("http://localhost:8080/client/matrixParams");
+        runTest("http://localhost:8080/client/internalMatrixParams");
 
     }
 
@@ -49,7 +49,7 @@ public class FeignDemoTest {
     @Test
     public void wiremockMatrixParamsMap() throws IOException {
 
-        runTest("http://localhost:7000/client/matrixParamsMap");
+        runTest("http://localhost:8080/client/wiremockMatrixParamsMap");
 
     }
 
@@ -57,7 +57,7 @@ public class FeignDemoTest {
     @Test
     public void wiremockMatrixParams() throws IOException {
 
-        runTest("http://localhost:7000/client/matrixParams");
+        runTest("http://localhost:8080/client/wiremockMatrixParams");
 
     }
 

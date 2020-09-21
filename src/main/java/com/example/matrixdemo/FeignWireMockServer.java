@@ -12,9 +12,9 @@ import java.util.Map;
 public interface FeignWireMockServer {
 
     @GetMapping("/server/matrixParamsMap{matrixVars}")
-    public void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
+    void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
 
     @GetMapping("/server/matrixParams{account}{name}")
-    public void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
+    void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
 
 }

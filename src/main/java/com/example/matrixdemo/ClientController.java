@@ -14,24 +14,46 @@ import java.util.Map;
 public class ClientController {
 
     @Autowired
-    private FeignInternalServer feignDemo;
+    private FeignInternalServer feignInternalServer;
+
+    @Autowired
+    private FeignWireMockServer feignWireMockServer;
 
 
-    @GetMapping("/client/matrixParamsMap")
-    public void matrixParamsMap() {
+    @GetMapping("/client/internalMatrixParamsMap")
+    public void internalMatrixParamsMap() {
 
         Map<String, List<String>> matrixVars = new HashMap<>();
         matrixVars.put("account", Collections.singletonList("a"));
         matrixVars.put("name", Collections.singletonList("n"));
-        feignDemo.matrixParamsMap(matrixVars);
+        feignInternalServer.matrixParamsMap(matrixVars);
 
     }
 
 
-    @GetMapping("/client/matrixParams")
-    public void matrixParams() {
+    @GetMapping("/client/internalMatrixParams")
+    public void internalMatrixParams() {
 
-        feignDemo.matrixParams("a", "n");
+        feignInternalServer.matrixParams("a", "n");
+
+    }
+
+
+    @GetMapping("/client/wiremockMatrixParamsMap")
+    public void wiremockMatrixParamsMap() {
+
+        Map<String, List<String>> matrixVars = new HashMap<>();
+        matrixVars.put("account", Collections.singletonList("a"));
+        matrixVars.put("name", Collections.singletonList("n"));
+        feignWireMockServer.matrixParamsMap(matrixVars);
+
+    }
+
+
+    @GetMapping("/client/wiremockMatrixParams")
+    public void wiremocklMatrixParams() {
+
+        feignWireMockServer.matrixParams("a", "n");
 
     }
 
