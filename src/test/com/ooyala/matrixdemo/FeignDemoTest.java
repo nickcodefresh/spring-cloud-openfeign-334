@@ -25,7 +25,7 @@ public class FeignDemoTest {
     @Before
     public void setUp() {
 
-        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/api/server;account=a;name=n"))
+        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/server/matrixParams;account=a;name=n"))
                                  .willReturn(aResponse().withStatus(200)));
     }
 
@@ -35,7 +35,7 @@ public class FeignDemoTest {
 
         try (CloseableHttpClient client = HttpClients.createDefault()) {
 
-            HttpGet request = new HttpGet("http://localhost:8080/api/matrixParamsMap");
+            HttpGet request = new HttpGet("http://localhost:8080/client/matrixParamsMap");
 
             // This REST call will fail because Spring Cloud is encoding the matrix parameters so that the request is]
             // /api/server%3Bname%3D%5Bn%5D%3Baccount%3D%5Ba%5D rather than /api/server;account=a;name=n
@@ -90,7 +90,7 @@ public class FeignDemoTest {
 
         try (CloseableHttpClient client = HttpClients.createDefault()) {
 
-            HttpGet request = new HttpGet("http://localhost:8080/api/matrixParams");
+            HttpGet request = new HttpGet("http://localhost:8080/client/matrixParams");
 
             client.execute(request, httpResponse -> {
                 assertThat(httpResponse.getStatusLine().getStatusCode() == HttpStatus.OK.value());

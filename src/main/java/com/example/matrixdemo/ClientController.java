@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,18 +17,18 @@ public class ClientController {
     private FeignDemo feignDemo;
 
 
-    @GetMapping("/api/matrixParamsMap")
+    @GetMapping("/client/matrixParamsMap")
     public void matrixParamsMap() {
 
         Map<String, List<String>> matrixVars = new HashMap<>();
-        matrixVars.put("account", Arrays.asList("a"));
-        matrixVars.put("name", Arrays.asList("n"));
+        matrixVars.put("account", Collections.singletonList("a"));
+        matrixVars.put("name", Collections.singletonList("n"));
         feignDemo.matrixParamsMap(matrixVars);
 
     }
 
 
-    @GetMapping("/api/matrixParams")
+    @GetMapping("/client/matrixParams")
     public void matrixParams() {
 
         feignDemo.matrixParams("a", "n");

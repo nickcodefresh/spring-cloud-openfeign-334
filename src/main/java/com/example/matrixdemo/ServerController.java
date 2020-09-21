@@ -11,13 +11,13 @@ import java.util.Map;
 @RestController
 public class ServerController {
 
-    @GetMapping("/api/server{matrixVars}")
+    @GetMapping("/server/matrixParamsMap{matrixVars}")
     public void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars) {
 
     }
 
 
-    @GetMapping("/api/server{account}{name}")
+    @GetMapping("/server/matrixParam{account}{name}")
     public void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name) {
 
     }
