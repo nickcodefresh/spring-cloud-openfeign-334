@@ -25,8 +25,12 @@ public class FeignDemoTest {
     @Before
     public void setUp() {
 
-        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/server/matrixParams;account=a;name=n"))
-                                 .willReturn(aResponse().withStatus(200)));
+//        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/server/matrixParams;account=a;name=n"))
+//                .willReturn(aResponse().withStatus(200)));
+        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/server/matrixParamsMap;account=a;name=n"))
+                .willReturn(aResponse().withStatus(200)));
+        WireMock.stubFor(WireMock.get(WireMock.urlEqualTo("/server/matrixParamsMap;name=n;account=a"))
+                .willReturn(aResponse().withStatus(200)));
     }
 
 
@@ -38,12 +42,12 @@ public class FeignDemoTest {
     }
 
 
-    @Test
-    public void internalMatrixParams() throws IOException {
-
-        runTest("http://localhost:8080/client/internalMatrixParams");
-
-    }
+//    @Test
+//    public void internalMatrixParams() throws IOException {
+//
+//        runTest("http://localhost:8080/client/internalMatrixParams");
+//
+//    }
 
 
     @Test
@@ -54,12 +58,12 @@ public class FeignDemoTest {
     }
 
 
-    @Test
-    public void wiremockMatrixParams() throws IOException {
-
-        runTest("http://localhost:8080/client/wiremockMatrixParams");
-
-    }
+//    @Test
+//    public void wiremockMatrixParams() throws IOException {
+//
+//        runTest("http://localhost:8080/client/wiremockMatrixParams");
+//
+//    }
 
 
     private void runTest(String url) throws IOException {
