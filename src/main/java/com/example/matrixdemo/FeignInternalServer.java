@@ -14,7 +14,7 @@ public interface FeignInternalServer {
     @GetMapping("/server/matrixParamsMap{matrixVars}")
     void matrixParamsMap(@MatrixVariable Map<String, List<String>> matrixVars);
 
-    @GetMapping("/server/matrixParams{account}{name}")
-    void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
+//    @GetMapping("/server/matrixParams{account}{name}")
+//    void matrixParams(@MatrixVariable("account") String account, @MatrixVariable("name") String name);
 
 }

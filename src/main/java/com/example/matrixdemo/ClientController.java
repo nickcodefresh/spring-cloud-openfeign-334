@@ -34,7 +34,8 @@ public class ClientController {
     @GetMapping("/client/internalMatrixParams")
     public void internalMatrixParams() {
 
-        feignInternalServer.matrixParams("a", "n");
+//        feignInternalServer.matrixParams("a", "n");
+        throw new UnsupportedOperationException("can only pass matrix params as a map, not individually");
 
     }
 
@@ -51,9 +52,10 @@ public class ClientController {
 
 
     @GetMapping("/client/wiremockMatrixParams")
-    public void wiremocklMatrixParams() {
+    public void wiremockMatrixParams() {
 
-        feignWireMockServer.matrixParams("a", "n");
+//        feignWireMockServer.matrixParams("a", "n");
+        throw new UnsupportedOperationException("can only pass matrix params as a map, not individually");
 
     }
 
